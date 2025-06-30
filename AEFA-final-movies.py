@@ -14,8 +14,8 @@ key_dict = json.loads(st.secrets["textkey"])
 #st.sidebar.write("Loaded key_dict (excluding private_key):", debug_key_dict)
 
 
-#creds = service_account.Credentials.from_service_account_info(key_dict)
-#db = firestore.Client(credentials=creds, project="final-movies")
+creds = service_account.Credentials.from_service_account_info(key_dict)
+db = firestore.Client(credentials=creds, project="final-movies")
 
 # It is recommended to handle authentication securely,
 # for example, by using environment variables for service account paths.
