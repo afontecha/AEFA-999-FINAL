@@ -5,7 +5,7 @@ from google.cloud import firestore
 from google.oauth2 import service_account
 import json
 
-# CARGA LAS CREDENCIALES DE DTREAMLIT
+# CON ESTE CÓDIGO SE CARGAN LAS CREDENCIALES
 try:
     key_dict = json.loads(st.secrets["textkey"])
     creds = service_account.Credentials.from_service_account_info(key_dict)
@@ -13,7 +13,7 @@ except Exception as e:
     st.error(f"Error loading credentials: {e}")
     st.stop()
 
-# iNICIALIZAR CLIENTE DE FIRESTORE
+# CON ESTE CÓDIGO INICIALIZO EL CLIENTE DE FIRESTORE
 try:
     db = firestore.Client(credentials=creds, project="AEFA-999-FINAL")
     dbNames = db.collection("names")
@@ -22,7 +22,7 @@ except Exception as e:
     st.stop()
 
 
-# CARGA LOS DOCUMENTOS DE FIRESTORE Y LOS CONVIENTE A UN DTAFRAME
+# CON ESTE CÓDIGO VOY A CARGAR LOS DOCUMENTOS DE FIRESTORE Y LOS CONVIENTO A UN DTAFRAME
 def load_firestore_data():
     try:
 
@@ -36,10 +36,10 @@ def load_firestore_data():
         st.error(f"Error fetching data from Firestore: {e}")
         return pd.DataFrame()
 
-# CARGA LA DATA DE FIRESTORE
+# CON ESTE CÓDIGO CARGO LA DATA DE FIRESTORE
 names_dataframe = load_firestore_data()
 
-###### BUSQUEDA ############################
+###### CON ESTE CÓDIGO HAGO UNA BUSQUEDA ############################
 def loadByName(name):
     try:
         # QUERY PARA BUSCAR NOMBRE
@@ -63,7 +63,7 @@ if btnFiltrar:
     else:
         st.sidebar.write(doc.to_dict())
 
-########### ELIMINAR ##########################
+########### CON ESTE CÓDIGO HAGO UNA FUNCION PARA ELIMINAR ##########################
 st.sidebar.markdown("""---""")
 btnEliminar = st.sidebar.button("Eliminar")
 
@@ -75,7 +75,7 @@ if btnEliminar:
         dbNames.document(deletename.id).delete()
         st.sidebar.write(f"{nameSearch} eliminado")
 
-########### INSERTAR ##########################
+########### CON ESTE CÓDIGO HAGO UNA FUNCION PARA INSERTAR ##########################
 st.sidebar.subheader("Inserte la informacion que desea agregar")
 # Input fields for data
 company = st.sidebar.text_input("Company")
@@ -100,7 +100,7 @@ if st.sidebar.button("Insert into Firebase"):
     else:
         st.error("Por favor, llene todos los campos!")
 
-################ SIDEBAR CHECKBOX ########################
+################ CON ESTE CÓDIGO GENERO EL SIDEBAR CHECKBOX ########################
 
 genre_filter = st.sidebar.checkbox("Filter by Genre", key="genre_filter")
 
