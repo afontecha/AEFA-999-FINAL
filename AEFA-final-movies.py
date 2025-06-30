@@ -4,9 +4,9 @@ import pandas as pd
 from google.cloud import firestore
 
 db = firestore.Client.from_service_account_json("aefa-999-final-firebase-adminsdk-fbsvc-5e42f45ac9.json.json")
-dbNames = db.collection("name")
+dbNames = db.collection("names")
 
-names_ref = list(db.collection(u'name').stream())
+names_ref = list(db.collection(u'names').stream())
 names_dict =list(map(lambda x: x.to_dict(), names_ref))
 names_dataframe = pd.DataFrame(names_dict)
 st.dataframe(names_dataframe)
@@ -69,8 +69,7 @@ name = st.sidebar.text_input("Name")
 
 if st.sidebar.button("Insert into Firebase"):
     if company and director and genre and name:
-        # Reference to the Firestore collection
-        doc_ref = db.collection("name").document()  # You can specify a document ID or let Firestore auto-generate one
+        # Reference to the Firestore collecument()  # You can specify a document ID or let Firestore auto-generate one
         doc_ref.set({
             "company": company,
             "director": director,
@@ -80,3 +79,5 @@ if st.sidebar.button("Insert into Firebase"):
         st.success("Informacion insertada correctamente!")
     else:
         st.error("Porfavor llene todos los campos!")
+tion
+        doc_ref = db.collection("name").doc
