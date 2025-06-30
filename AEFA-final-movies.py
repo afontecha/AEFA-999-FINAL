@@ -89,22 +89,22 @@ if btnEliminar:
 ########################################################
 
 #######################ACTULIZAR##########################
-#
-#st.sidebar.markdown("""___""")
-#newname = st.sidebar.text_input("Actualizar nombre")
-#btnActualizar = st.sidebar.button("Actualizar")
 
-#if btnActualizar:
-#  updatename = loadByName(nameSearch)
-#  if updatename is None:
-#    st.sidebar.write(f"{nameSearch} no existe")
-#  else:
-#    # To update a document, you need the document reference, not just the dictionary
-#    doc_ref_to_update = dbNames.document(updatename.get('name')) # Assuming 'name' is the document ID
-#    doc_ref_to_update.update(
-#        {
-#            "name": newname
-#        }
-#    )
-#
+st.sidebar.markdown("""___""")
+newname = st.sidebar.text_input("Actualizar nombre")
+btnActualizar = st.sidebar.button("Actualizar")
+
+if btnActualizar:
+  updatename = loadByName(nameSearch)
+  if updatename is None:
+    st.sidebar.write(f"{nameSearch} no existe")
+  else:
+    # To update a document, you need the document reference, not just the dictionary
+    doc_ref_to_update = dbNames.document(updatename.get('name')) # Assuming 'name' is the document ID
+    doc_ref_to_update.update(
+        {
+            "name": newname
+        }
+    )
+
 ############################################################
