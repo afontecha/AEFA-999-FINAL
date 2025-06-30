@@ -50,7 +50,7 @@ if company and director and genre and name and submit:
   names_ref = list(db.collection(u'names').stream())
   names_dict = list(map(lambda x: x.to_dict(), names_ref))
   names_dataframe = pd.DataFrame(names_dict)
-  st.sidebar.write(names_dataframe)
+  st.dataframe(names_dataframe)
 #############
 
 ###########BUSQUEDA POR NOMBRE###########################
