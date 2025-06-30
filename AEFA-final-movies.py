@@ -74,18 +74,18 @@ if btnFiltrar:
 #########################################################
 
 ###################eliminar#############################
-#st.sidebar.markdown("""___""")
-#btnEliminar = st.sidebar.button("Eliminar")
-#
-#if btnEliminar:
-#  deletename = loadByName(nameSearch)
-#  if deletename is None:
-#   st.sidebar.write(f"{nameSearch} no existe")
-#  else:
-#    # To delete a document, you need the document reference, not just the dictionary
-#    doc_ref_to_delete = dbNames.document(deletename.get('name')) # Assuming 'name' is the document ID
-#    doc_ref_to_delete.delete()
-#    st.sidebar.write(f"{nameSearch} ha sido eliminado")
+st.sidebar.markdown("""___""")
+btnEliminar = st.sidebar.button("Eliminar")
+
+if btnEliminar:
+  deletename = loadByName(nameSearch)
+  if deletename is None:
+   st.sidebar.write(f"{nameSearch} no existe")
+  else:
+    # To delete a document, you need the document reference, not just the dictionary
+    doc_ref_to_delete = dbNames.document(deletename.get('name')) # Assuming 'name' is the document ID
+    doc_ref_to_delete.delete()
+    st.sidebar.write(f"{nameSearch} ha sido eliminado")
 ########################################################
 
 #######################ACTULIZAR##########################
