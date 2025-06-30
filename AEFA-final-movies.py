@@ -11,7 +11,7 @@ names_dict =list(map(lambda x: x.to_dict(), names_ref))
 names_dataframe = pd.DataFrame(names_dict)
 st.dataframe(names_dataframe)
 
-######BUSQUEDA############################
+######BUSQUEDA#############################
 def loadByName(name):
   names_ref = dbNames.where(u'name', u'==', name)
   currentName = None
