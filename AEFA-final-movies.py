@@ -15,7 +15,7 @@ except Exception as e:
 
 # CON ESTE CÓDIGO INICIALIZO EL CLIENTE DE FIRESTORE
 try:
-    db = firestore.Client(credentials=creds, project="AEFA-999-FINAL")
+    db = firestore.Client(credentials=creds, project="aefa-999-final")
     dbNames = db.collection("names")
 except Exception as e:
     st.error(f"Error initializing Firestore client: {e}")
